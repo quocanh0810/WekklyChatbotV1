@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TMU Weekly Bot</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="/assets/main.js?v=1" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Chat Bot lịch tuần Đại học Thương Mại</h1>
+      <p class="subtitle">Hỗ trợ câu hỏi về lịch tuần Đại học Thương Mại</p>
+    </header>
+
+    <main id="chat" class="chat">
+      <div id="scroll-anchor" aria-hidden="true"></div>
+    </main>
+
+    <form id="composer" class="composer">
+      <input id="prompt" type="text" placeholder="Nhập câu hỏi của bạn..." autocomplete="off" />
+      <button id="sendBtn" type="submit">Gửi</button>
+    </form>
+  </div>
+</body>
+</html>
