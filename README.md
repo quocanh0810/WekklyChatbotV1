@@ -2,7 +2,7 @@
 
 # Weekly Schedule Chatbot (Self-hosted RAG with FAISS + SQLite)
 
-**Mục tiêu**: Tự lưu trữ Vector DB (FAISS) + SQLite metadata, dùng OpenAI Embeddings để trả lời mọi câu hỏi về **lịch tuần (.docx)** của bạn.
+**Chức năng**: Tự lưu trữ Vector DB (FAISS) + SQLite metadata, dùng OpenAI Embeddings để trả lời mọi câu hỏi về **lịch tuần (.docx)** 
 
 ## Thành phần
 - `parse_schedule.py`: trích dữ liệu từ `.docx` thành JSONL (mỗi sự kiện 1 dòng), cố gắng bóc tách **ngày, giờ, địa điểm, TP...** (có thể không hoàn hảo, bạn tinh chỉnh regex tuỳ file).
@@ -27,7 +27,4 @@ python ingest_faiss.py --jsonl data/schedule.jsonl --store-dir rag_store
 # 3) Chạy Web
 
 uvicorn web_app:app --reload --port 8000
-
-# 4) Hỏi thử
-curl -X POST http://127.0.0.1:8000/ask -H "Content-Type: application/json"   -d '{"question":"Thứ 4 (20/8) có hoạt động gì? ở đâu? TP gồm những ai?"}'
 ```
