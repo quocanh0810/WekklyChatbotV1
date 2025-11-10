@@ -1,5 +1,7 @@
 ![Weekly Chatbot Screenshot](./WeeklyChatbot.png)
 
+![Weekly Chatbot Screenshot](./WeeklyChatbot2.png)
+
 # Weekly Schedule Chatbot (Self-hosted RAG with FAISS + SQLite)
 
 **Chức năng**: Tự lưu trữ Vector DB (FAISS) + SQLite metadata, dùng OpenAI Embeddings để trả lời mọi câu hỏi về **lịch tuần (.docx)** 
@@ -33,7 +35,7 @@ python ingest_faiss.py --jsonl data/week_2.jsonl --store-dir rag_store --append
 uvicorn web_app:app --reload --port 8000
 
 #Web Admin Dashboard
-uvicorn rag.web_app:app --reload --port 
+uvicorn rag.web_app:app --reload --port 8001
 
 #Tạo tài khoản, thêm biến sau trong .evn:
 ADMIN_USER=...
