@@ -1,17 +1,25 @@
-![Weekly Chatbot Screenshot](./doc/OverviewModel.png)
-
-![Weekly Chatbot Screenshot](./doc/WeeklyChatbot.png)
-
-![Weekly Chatbot Screenshot](./doc/WeeklyChatbot1.png)
-
 # Weekly Schedule Chatbot (Self-hosted RAG with FAISS + SQLite)
 
-**Chức năng**: Tự lưu trữ Vector DB (FAISS) + SQLite metadata, dùng OpenAI Embeddings để trả lời mọi câu hỏi về **lịch tuần (.docx)** 
+## Mô tả
 
-## Thành phần
-- `parse_schedule.py`: trích dữ liệu từ `.docx` thành JSONL (mỗi sự kiện 1 dòng), cố gắng bóc tách **ngày, giờ, địa điểm, TP...** (có thể không hoàn hảo, bạn tinh chỉnh regex tuỳ file).
-- `ingest_faiss.py`: chunk dữ liệu, tạo **embedding** bằng OpenAI, lưu vào **FAISS** (`rag_store/index.faiss`) và **SQLite** (`rag_store/chunks.sqlite`) để tra metadata.
-- `server_faiss.py`: API FastAPI `/ask` → embed câu hỏi → tìm Top-K trong FAISS → nhét vào prompt → gọi LLM trả lời (tiếng Việt, không bịa).
+Weekly Schedule Chatbot là hệ thống chatbot hỏi–đáp về lịch tuần, xây dựng theo kiến trúc RAG (Retrieval-Augmented Generation) và có thể tự lưu trữ hoàn toàn.  
+Hệ thống cho phép tải lên file lịch tuần (.docx), tự động trích xuất dữ liệu, sinh embedding, lưu vector vào FAISS và metadata vào SQLite, rồi dùng OpenAI để trả lời chính xác các câu hỏi liên quan đến lịch.
+
+---
+
+## Technical Stack
+
+| Thành phần | Công nghệ | Vai trò |
+|-----------|-----------|---------|
+| Frontend | HTML / CSS / JavaScript | Giao diện người dùng + giao diện quản trị |
+| Backend API | FastAPI (Python) | Server API, ingest, xác thực, truy vấn lịch |
+| RAG Engine | OpenAI Embeddings + FAISS | Lưu vector + tìm kiếm Top-K |
+| Metadata Store | SQLite | Lưu chunk metadata + log ingest |
+| Document Parser | python-docx + regex | Tách bảng lịch từ file .docx |
+| Auth | Token-based (custom mini JWT) | Đăng nhập admin + session |
+| Storage | FAISS Index + SQLite + uploads/ | Lưu index, metadata và file tải lên |
+
+---
 
 ## Cài đặt nhanh
 
@@ -30,3 +38,9 @@ uvicorn backend.main:app --reload --port 8000
 ADMIN_USER=...
 ADMIN_PASS=...
 ```
+
+![Weekly Chatbot Screenshot](./doc/OverviewModel.png)
+
+![Weekly Chatbot Screenshot](./doc/WeeklyChatbot.png)
+
+![Weekly Chatbot Screenshot](./doc/WeeklyChatbot1.png)
