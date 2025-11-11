@@ -40,7 +40,3 @@ ADMIN_PASS=...
 ```
 
 ![Weekly Chatbot Screenshot](./doc/OverviewModel.png)
-
-![Weekly Chatbot Screenshot](./doc/WeeklyChatbot.png)
-
-![Weekly Chatbot Screenshot](./doc/WeeklyChatbot1.png)
