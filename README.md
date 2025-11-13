@@ -3,7 +3,7 @@
 ## Overview
 
 Weekly Schedule Chatbot is a fully self-hosted RAG-based system for question-answering on weekly schedules.
-Upload a .docx schedule → the system parses tables, chunks the content, generates embeddings, stores vectors in FAISS, metadata in SQLite, and uses OpenAI to answer user queries with high precision.
+Upload a .docx schedule → the system parses tables, chunks the content, generates embeddings, stores vectors in FAISS, metadata in SQLite, and uses Gemini Google to answer user queries with high precision.
 
 ---
 
