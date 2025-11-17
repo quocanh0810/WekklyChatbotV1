@@ -17,7 +17,7 @@ Upload a .docx schedule → the system parses tables, chunks the content, genera
 | Metadata Store | SQLite | Chunk metadata, ingestion logs |
 | Document Parser | python-docx + regex | Extract weekly tables from .docx files |
 | Auth | Token-based (custom mini JWT) | Admin login & session handling |
-| Storage | FAISS Index + SQLite + uploads/ | Persist vectors, metadata, and uploaded files |
+| Storage | FAISS Index + SQLite + uploads/ | Persist vectors, metadata, and uploaded files | 
 
 ---
 
